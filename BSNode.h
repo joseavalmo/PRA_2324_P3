@@ -2,20 +2,25 @@
 #define BSNODE_H
 
 #include <ostream>
+using namespace std;
 
-template <typename T> 
-class BSNode {
-    public:
-        T elem;
-        BSNode<T>* left;
-        BSNode<T>* right;
-        BSNode(T elem, BSNode<T>* left=nullptr, BSNode<T>* right=nullptr){
-            new BSNode<T>(elem, left, right);
-        }
-        friend std::ostream& operator<<(std::ostream &out, const BSNode<T> &bsn){
-            out << "BSNode Elemento: " << bsn.elem << ", Izq: " << bsn.left << ", Der: " << bsn.right << std::endl;
-            return out;
-        }
+template <typename T> class BSNode{
+	public:
+		T elem;
+		BSNode<T>* left;
+		BSNode<T>* right;
+
+		BSNode(T elem, BSNode<T>* left = nullptr, BSNode<T>* right = nullptr){
+			this->elem = elem;
+			this->left = left;
+			this->right = right;
+		}
+
+		friend ostream&operator<<(ostream &out, BSNode<T> &bsn){
+			out << bsn.elem;
+			return out;
+		}
+		
 };
 
 #endif
